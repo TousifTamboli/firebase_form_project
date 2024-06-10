@@ -1,8 +1,9 @@
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
 import {
   getAuth,
-  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword ,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -37,12 +38,12 @@ submit.addEventListener("click", function (event) {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  createUserWithEmailAndPassword(auth, email, password)
+  signInWithEmailAndPassword (auth, email, password)
     .then((userCredential) => {
       // Signed up
       const user = userCredential.user;
-      alert("Creating User");
-      window.location.href = "./loginin.html";
+      alert("Logging in...");
+      window.location.href = "./grand.html";
       // ...
     })
     .catch((error) => {
