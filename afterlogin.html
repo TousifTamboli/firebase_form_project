@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After Login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script type="module" src="afterlogin.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5">Welcome!</h1>
+      <button id="signOutBtn" class="btn btn-danger mt-3">Sign Out</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+
+    <script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCmkKqAUz6zxrofXp8WV5Oqy3NyfBZRQ9E",
+  authDomain: "regiterform-10389.firebaseapp.com",
+  databaseURL: "https://regiterform-10389-default-rtdb.firebaseio.com",
+  projectId: "regiterform-10389",
+  storageBucket: "regiterform-10389.appspot.com",
+  messagingSenderId: "645383755122",
+  appId: "1:645383755122:web:6f1854da459a7a181279eb",
+  measurementId: "G-4F1R5T87CS",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+document.getElementById("signOutBtn").addEventListener("click", () => {
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    alert("Signed out successfully");
+    window.location.href = "./loginin.html";
+  }).catch((error) => {
+    // An error happened.
+    console.error("Sign out error", error);
+    alert("Error signing out: " + error.message);
+  });
+});
+
+
+    </script>
+
+
+  </body>
+</html>

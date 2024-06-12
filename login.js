@@ -43,7 +43,7 @@ submit.addEventListener("click", function (event) {
       // Signed up
       const user = userCredential.user;
       alert("Logging in...");
-      window.location.href = "./grand.html";
+      window.location.href = "./afterlogin.html";
       // ...
     })
     .catch((error) => {
